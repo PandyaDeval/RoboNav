@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Video Streaming Demonstration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-6" style="background-color:lavender;">
+      <img style="max-width: 50%;" src="{{ url_for('video_stream', url=url_l) }}">
+    </div>
+    <div class="col-sm-6" style="background-color:lavenderblush;">
+      <img style="max-width: 50%;" src="{{ url_for('video_stream', url=url_r) }}">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+<script>
+$(document).ready(function(){
+  $("#show").click(function(){
+    $("header").show();
+    $("section").hide();
+    $.getJSON('/start_mapping', function(data){
+       //do
+    });
+    return false;
+  });
+  $("#hide").click(function(){
+    $("header").hide();
+    $("section").show();
+    });
+  $("#clickb").click(function(){
+      $.getJSON('/clickpic', function(data){
+       //do
+    });
+    return false;
+
+});
+
+});
+
+function show_stop(){
+  document.getElementsByClassName("ab")[1].style='display:block;';
+  document.getElementsByClassName("ab")[0].style='display:block;';
+}
+</script>
+</head>
+<body>
+
+<section>
+    <form action = '/start_mapping' method = 'get'>
+    <button onclick="show_stop()" id="show" type = "submit">map</button>
+    </form>
+</section>
+<header>
+    <form action = '/clickpic' method = 'get'>
+  <button class="ab" type = "submit" style='display:none;' id = "clickb"> Click </button>
+  </form>
+
+  <form action = "/stop_mapping" method = 'get'>
+        <button id="hide" class="ab" style='display:none;' >Stop Map</button>
+  </form>
+</header>
+
+
+
+

@@ -1,0 +1,44 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Video Streaming Demonstration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script>
+        setTimeout(() => {
+            document.getElementById("img1").src='depth.jpg';
+            document.getElementById("img2").src='panol.jpg';
+            document.getElementById("img3").src='panor.jpg';
+        },60000);
+    </script>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="text-center"><h1>Maps</h1></div>
+  <div class="row">
+    <div class="col-sm-6" style="background-color:lavender;">
+
+      <img id="img1" style="max-width: 50%;" src="">
+    </div>
+    <div class="col-sm-6" style="background-color:lavenderblush;">
+      <img id="img2" style="max-width: 50%;" src="">
+
+    </div>
+      <div class="col-sm-6" style="background-color:lavenderblush;">
+      <img id="img3" style="max-width: 50%;" src="">
+
+    </div>
+  </div>
+  <form action="/stream" method="get">
+       <button style="margin: 50px;" type="submit" class="btn btn-primary">Remap</button>
+  </form>
+</div>
+
+</body>
+</html>
